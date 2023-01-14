@@ -4,13 +4,13 @@ pipeline {
     stage ('BUILD'){
       steps{
         sh 'printenv'
-        sh 'docker build -t Timmyrectommy/jenimg:""$BUILD_ID"" .'
+        sh 'docker build -t timmyrectommy/jenimg:""$BUILD_ID"" .'
       }
     }
       stage ('Publish'){
       steps{
         withDockerRegistry([credentialsId: "docker-hub", url: ""]){
-          sh 'docker push Timmyrectommy/jenimg:""$BUILD_ID""'
+          sh 'docker push timmyrectommy/jenimg:""$BUILD_ID""'
         }
       }
         
