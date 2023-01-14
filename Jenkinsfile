@@ -2,13 +2,13 @@ pipeline {
   agent any
   stages{
     stage ('BUILD'){
-      stpes{
+      steps{
         sh 'printenv'
         sh 'docker build -t timmyrectommy/jenimg:""$BUILD_ID"" .'
       }
     }
       stage ('Publish'){
-      stpes{
+      steps{
         withDockerRegistry([credentialsId: "docker-hub", url: ""]){
           sh 'docker push timmyrectommy/jenimg:""$BUILD_ID""'
         }
