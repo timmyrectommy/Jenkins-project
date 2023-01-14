@@ -10,7 +10,8 @@ pipeline {
       stage ('Publish'){
       steps{
         withDockerRegistry([credentialsId: "docker-hub", url: ""]){
-            sh 'docker push timmyrectommy/jenimg:""$BUILD_ID""'
+          sh 'docker push timmyrectommy/jenimg:""$BUILD_ID""'
+        }
         }
       }
         
