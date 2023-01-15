@@ -3,7 +3,7 @@ pipeline {
   stages{
     stage ('BUILD'){
       steps{
-        sh 'prinenv'
+        sh 'printenv'
       }
     }
     stage ('Publish'){
@@ -14,7 +14,7 @@ pipeline {
                   sh 'docker tag ecr-timi:latest public.ecr.aws/i3i7l8b5/ecr-timi:""BUILD_ID""'
                   sh 'docker push public.ecr.aws/i3i7l8b5/ecr-timi:""BUILD_ID""'
                   }
-                  
+      
       }
     }
   }
